@@ -1,0 +1,58 @@
+@(version: String, allByVersion: List[ModuleVersion], featuredByVersion: List[ModuleVersion], notFeaturedByVersion: List[ModuleVersion], allFeatured: List[Module], allNotFeatured: List[Module])
+
+@main("Welcome to Play 2.0") {
+
+<h2> versions
+</h2>
+    <ul>
+        <li><a href='@routes.Application.show("1.0.0")'>1.0.0</a></li>
+        <li><a href='@routes.Application.show("1.2.3")'>1.2.3</a></li>
+        <li><a href='@routes.Application.show("1.2.5")'>1.2.5</a></li>
+        <li><a href='@routes.Application.show("2.0.0")'>2.0.0</a></li>
+        <li><a href='@routes.Application.show("2.0.4")'>2.0.4</a></li>
+    </ul>
+
+<h2>Modules by version</h2>
+
+<h3>All by version @{version}</h3>
+<ul>
+    @for(item <- allByVersion){
+       <li>@{item.module.name} for ver. @{item.version} @if(item.module.isFeatured){ (featured!)}</li>
+    }
+</ul>
+
+<h3>Featured by version @{version}</h3>
+<ul>
+    @for(item <- featuredByVersion){
+    <li>@{item.module.name} for ver. @{item.version}</li>
+    }
+</ul>
+
+<h3>NOT featured by version @{version}</h3>
+<ul>
+    @for(item <- notFeaturedByVersion){
+    <li>@{item.module.name} for ver. @{item.version}</li>
+    }
+</ul>
+
+<h2>Modules by Featured flag</h2>
+<h3>All featured</h3>
+<ul>
+    @for(item <- allFeatured){
+    <li>@{item.name}</li>
+    }
+</ul>
+
+<h3>All NOT featured</h3>
+<ul>
+    @for(item <- allNotFeatured){
+    <li>@{item.name}</li>
+    }
+</ul>
+
+
+
+
+
+    
+}
